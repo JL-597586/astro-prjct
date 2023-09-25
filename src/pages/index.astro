@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to Swag.">
 	<main>
 		<svg
 			class="astro-a"
@@ -33,7 +33,14 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1>Welcome to <span class="text-gradient">Swag</span></h1>
+		
+		<div class="character-card-layout">
+			<img class="character-img" src="/2B.jpg"></img>
+			<img class="character-img" src="/ASUKA.jpg"></img>
+			<img class="character-img" src="/KAIJO.jpg"></img>
+		</div>
+		
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -85,7 +92,7 @@ import Card from '../components/Card.astro';
 	h1 {
 		font-size: 4rem;
 		font-weight: 700;
-		line-height: 1;
+		line-height: 0.3;
 		text-align: center;
 		margin-bottom: 1em;
 	}
@@ -120,4 +127,61 @@ import Card from '../components/Card.astro';
 		gap: 2rem;
 		padding: 0;
 	}
+	.character-card-layout {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 27rem;
+	}
+	.character-img {
+		height: 20rem;
+		border-radius: 2rem;
+		border-width: 1rem;
+		border-style: inset;
+		border-color: #9a6efa;
+		margin-left: 0.5rem;
+		margin-right: 0.5rem;
+	}
+	@keyframes character-animation {
+		0% {border-color: #9a6efa;}
+		25% {border-color:#6e34eb;}
+		50% {border-color: #348ceb;}
+		50% {border-color: #3474eb;}
+		100% {border-color: #9a6efa;}
+
+		0% {height: 20rem;}
+		25% {height: 20.5rem;}
+		50% {height: 21rem;}
+		50% {height: 22rem;}
+		100% {height: 24rem;}
+
+	}
+	.character-img:hover {
+		height: 24rem;
+		animation-name: character-animation;
+		animation-duration: 0.2s;
+	}
+	@keyframes shake {
+		0% { transform: translate(1px, 1px) rotate(0deg); }
+  		10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  		20% { transform: translate(-3px, 0px) rotate(1deg); }
+  		30% { transform: translate(3px, 2px) rotate(0deg); }
+  		40% { transform: translate(1px, -1px) rotate(1deg); }
+  		50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  		60% { transform: translate(-3px, 1px) rotate(0deg); }
+  		70% { transform: translate(3px, 1px) rotate(-1deg); }
+  		80% { transform: translate(-1px, -1px) rotate(1deg); }
+  		90% { transform: translate(1px, 2px) rotate(0deg); }
+  		100% { transform: translate(1px, -2px) rotate(-1deg); }
+		0% {height: 24rem;}
+		25% {height: 22rem;}
+		50% {height: 21rem;}
+		50% {height: 20.5rem;}
+		100% {height: 20rem;}
+	}
+	.character-img:active {
+		animation-name: shake;
+		animation-duration: 0.5s;
+	}
+
 </style>
